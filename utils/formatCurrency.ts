@@ -6,3 +6,7 @@ export const currencyFormatter = (amount: string) => {
           .replace(/\d(?=(\d{3})+\.)/g, '$&,')
     : 0;
 };
+
+export const capitalizedSplitWord = (word: string) => {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+};

@@ -16,7 +16,7 @@ export const getListings = async (
 ): Promise<Lists | undefined> => {
   try {
     const response = await axiosInstance.post('/properties/v3/list', params);
-    return response.data.data.home_search;
+    return response?.data?.data?.home_search;
   } catch (error) {
     console.error('Error fetching transactions:', error);
     return undefined;
@@ -31,7 +31,7 @@ export const getProperty = async (
       `/properties/v3/detail?property_id=${property_id}`,
     );
 
-    return response.data.data.home;
+    return response?.data?.data?.home;
   } catch (error) {
     console.error('Error fetching transactions:', error);
     return undefined;

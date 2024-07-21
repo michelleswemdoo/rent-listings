@@ -1,4 +1,5 @@
 import { BackButton } from '@/components/BackButton';
+import { PropertyDetails } from '@/components/PropertyDetails';
 import { getListings, getProperty } from '@/lib/data-service';
 
 type PortfolioDetailsProps = { params: { listingsId: string } };
@@ -12,7 +13,7 @@ type SearchProps = {
 };
 
 export const generateMetadata = async ({ params }: PortfolioDetailsProps) => {
-  const home = await getProperty(params.listingsId);
+  const home = await getProperty(params?.listingsId);
   return {
     title: `Details for ${home?.location?.address?.line} ${home?.location?.address?.postal_code}`,
   };
@@ -30,7 +31,7 @@ export const generateStaticParams = async ({ searchParams }: SearchProps) => {
     sort: { direction: 'desc', field: 'list_date' },
   });
 
-  const ids = listings?.results.map((list) => ({
+  const ids = listings?.results?.map((list) => ({
     listingsId: String(list.property_id),
   }));
 
@@ -40,13 +41,15 @@ export const generateStaticParams = async ({ searchParams }: SearchProps) => {
 const Page = async ({ params }: PortfolioDetailsProps) => {
   const home = await getProperty(params.listingsId);
   return (
-    <div className="px-12 pt-2">
+    <div className="px-12 pb-10 pt-2">
       <div className="flex items-center gap-4">
         <BackButton />
         <h1 className="text-xl font-medium text-slate-950">
-          {`Details for ${home?.location?.address?.line} ${home?.location?.address?.postal_code}`}
+          ${home?.location?.address?.line} $
+          {home?.location?.address?.postal_code}
         </h1>
       </div>
+      <PropertyDetails home={home!} />
     </div>
   );
 };

@@ -9,12 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: [
-          'var(--font-quicksand)',
-          {
-            fontFeatureSettings: '"lnum"',
-          },
-        ],
+        sans: ['var(--font-quicksand)'],
       },
     },
   },
