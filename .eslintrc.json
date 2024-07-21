@@ -4,6 +4,7 @@
   "plugins": ["tailwindcss"],
   "settings": {
     "tailwindcss": {
+      "callees": ["twMerge", "twJoin"],
       "config": "tailwind.config.ts"
     },
     "next": {
