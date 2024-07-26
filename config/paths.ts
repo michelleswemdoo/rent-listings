@@ -1,6 +1,6 @@
 export const ListingRoute = {
   id: 'list',
-  text: 'My Listings',
+  text: 'Listings',
   url: '/listings',
 };
 

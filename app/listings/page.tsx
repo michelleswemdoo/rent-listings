@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import { Metadata } from 'next';
 import { ListingsSkeleton } from '@/components/ListingsSkeleton';
 import { PropertyListings } from '@/components/PropertyListings';
 import { WithAuth } from '@/components/WithAuth';
@@ -8,6 +9,10 @@ type SearchProps = {
     limit?: string;
     page?: string;
   };
+};
+
+export const metadata: Metadata = {
+  title: 'Listings',
 };
 
 const Page = async ({ searchParams }: SearchProps) => {

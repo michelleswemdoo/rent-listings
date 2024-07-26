@@ -17,8 +17,8 @@ const quicksand = Quicksand({
 
 export const metadata: Metadata = {
   title: {
-    template: '%s / The Home Listings',
-    default: 'Welcome / Home Listings',
+    template: '%s | The Home Listings',
+    default: 'Welcome | Home Listings',
   },
   description: 'The home listings site',
 };
