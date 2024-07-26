@@ -23,7 +23,7 @@ npm run dev
 ### Type-Check, Compile and Minify for Production run all task for production.
 
 ```sh
-npm start
+npm run build
 ```
 
 ### Tools and library

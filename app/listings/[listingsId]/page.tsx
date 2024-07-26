@@ -7,7 +7,7 @@ import { WithAuth } from '@/components/WithAuth';
 type PortfolioDetailsProps = { params: { listingsId: string } };
 
 export type SearchProps = {
-  searchParams?: {
+  searchParams: {
     query?: string;
     limit?: string;
     offset?: string;
