@@ -1,7 +1,7 @@
-import { Listings } from '@/types';
-import { currencyFormatter } from '@/utils/formatCurrency';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Listings } from '@/types';
+import { currencyFormatter } from '@/utils/formatCurrency';
 
 type PropertyListingsCardProps = { list: Listings };
 
@@ -23,7 +23,7 @@ export const PropertyListingsCard = ({ list }: PropertyListingsCardProps) => {
         ${location?.address?.postal_code}`}
         href={`/listings/${encodeURIComponent(property_id)}`}
       >
-        <div className="relative h-[200px] w-[300px]">
+        <div className="relative h-[200px] w-full">
           <Image
             src={primary_photo?.href}
             alt={`Listing ${branding?.[0]?.name}`}

@@ -14,7 +14,7 @@ const Page = () => {
       />
 
       <div className="relative z-10 text-center">
-        <h1 className="mt-28 text-6xl font-medium tracking-tight text-white">
+        <h1 className="mt-28 text-3xl font-medium tracking-tight text-white md:text-6xl">
           The #1 site real <br />
           estate professionals trust*
         </h1>

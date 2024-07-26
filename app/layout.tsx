@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Quicksand } from 'next/font/google';
 import '@/styles/globals.css';
 import { Layout } from '@/components/layout/Layout';
+import { Toaster } from 'react-hot-toast';
+import { AuthProvider } from '@/store/AuthContext';
 
 type RootLayoutProps = {
   children?: React.ReactNode;
@@ -25,7 +27,10 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
       <body className={quicksand.className}>
-        <Layout>{children}</Layout>
+        <AuthProvider>
+          <Layout>{children}</Layout>
+          <Toaster />
+        </AuthProvider>
       </body>
     </html>
   );

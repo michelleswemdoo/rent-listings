@@ -1,6 +1,5 @@
 import { axiosInstance } from '@/config/axios';
 import type { Lists, Property } from '../types';
-
 type Sort = { direction?: string; field?: string };
 
 type GetListingsQueryParams = {
@@ -18,7 +17,7 @@ export const getListings = async (
     const response = await axiosInstance.post('/properties/v3/list', params);
     return response?.data?.data?.home_search;
   } catch (error) {
-    console.error('Error fetching transactions:', error);
+    console.error('Error fetching listings:', error);
     return undefined;
   }
 };
@@ -30,10 +29,9 @@ export const getProperty = async (
     const response = await axiosInstance.get(
       `/properties/v3/detail?property_id=${property_id}`,
     );
-
     return response?.data?.data?.home;
   } catch (error) {
-    console.error('Error fetching transactions:', error);
+    console.error('Error fetching property details:', error);
     return undefined;
   }
 };

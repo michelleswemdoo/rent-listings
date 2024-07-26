@@ -1,17 +1,25 @@
-import { Lists } from '@/types';
+import { getListings } from '@/lib/data-service';
+import { ListingsOptions } from '@/types';
 import { PropertyListingsCard } from './PropertyListingsCard';
+import { ListingsPagination } from './ListingsPagination';
 
-type PropertyListingsProps = {
-  listings: Lists;
-};
+export const PropertyListings = async ({ limit, offset }: ListingsOptions) => {
+  const listings = await getListings({
+    limit: limit,
+    offset: offset,
+    postal_code: '90004',
+    status: ['for_sale', 'ready_to_build'],
+    sort: { direction: 'desc', field: 'list_date' },
+  });
 
-export const PropertyListings = ({ listings }: PropertyListingsProps) => {
   return (
-    <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-4 lg:gap-12 xl:gap-2">
-      {listings?.results?.length > 0 &&
-        listings?.results?.map((list) => (
+    <>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-3">
+        {listings?.results.map((list) => (
           <PropertyListingsCard list={list} key={list.listing_id} />
         ))}
-    </div>
+      </div>
+      <ListingsPagination limit={limit} listings={listings!} />
+    </>
   );
 };

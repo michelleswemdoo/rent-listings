@@ -13,10 +13,13 @@ export const PropertyDetails = ({ home }: PropertyProps) => {
   const typeOfhome = home?.description.type;
   const homeType = typeOfhome?.slice(0, 4) + ' ' + typeOfhome?.slice(4);
   return (
-    <div className="mt-8 w-4/5 text-slate-950">
+    <div className="mt-8 w-full text-slate-950 sm:w-4/5">
       <SimpleSlider>
         {home?.photos?.map((photo) => (
-          <div className="relative h-[420px]" key={photo.href}>
+          <div
+            className="relative h-[420px] overflow-hidden rounded-lg"
+            key={photo.href}
+          >
             <Image
               src={photo.href}
               fill
@@ -32,7 +35,7 @@ export const PropertyDetails = ({ home }: PropertyProps) => {
         <h3 className="text-2xl font-bold">
           {`Price ${currencyFormatter(home?.list_price.toString())}`}
         </h3>
-        <ul className="flex items-center gap-4">
+        <ul className="flex flex-wrap items-center gap-4">
           <li className="flex items-center gap-1">
             <span className="font-semibold">{home?.description?.beds}</span>
             bed

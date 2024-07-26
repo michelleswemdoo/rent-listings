@@ -76,3 +76,8 @@ export type Property = {
   photos: Array<Photo>;
   consumer_advertisers: Array<ConsumerAdvertiser>;
 };
+
+export type ListingsOptions = {
+  limit: number;
+  offset: number;
+};

@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 const config: Config = {
   content: [
@@ -10,6 +11,12 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ['var(--font-quicksand)'],
+      },
+
+      screens: {
+        // xs: '475px',
+        // ...defaultTheme.screens,
+        '3xl': '1600px',
       },
     },
   },
