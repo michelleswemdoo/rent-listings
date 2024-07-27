@@ -2,6 +2,8 @@
 
 This application displays a grid showing a list of property listings and their details.
 
+### Preview : https://rent-listings.vercel.app/
+
 ## Setup Instructions
 
 ```sh
