@@ -1,7 +1,13 @@
+'use client';
+import { useSearchParams } from 'next/navigation';
+
 export const ListingsSkeleton = () => {
+  const searchParams = useSearchParams();
+  const limit = Number(searchParams.get('limit')) || 8;
+
   return (
     <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-4 lg:gap-12 xl:gap-2">
-      {Array.from({ length: 8 }).map((_, index) => (
+      {Array.from({ length: limit }).map((_, index) => (
         <div key={index} role="status">
           <div className="flex h-[200px] w-[300px] items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
             <svg
