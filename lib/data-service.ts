@@ -1,5 +1,6 @@
 import { axiosInstance } from '@/config/axios';
 import type { Lists, Property } from '../types';
+
 type Sort = { direction?: string; field?: string };
 
 type GetListingsQueryParams = {
