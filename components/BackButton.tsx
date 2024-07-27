@@ -1,7 +1,7 @@
 'use client';
 
-import { ChevronLeftIcon } from '@heroicons/react/16/solid';
 import { useRouter } from 'next/navigation';
+import { ChevronLeftIcon } from '@heroicons/react/16/solid';
 
 export const BackButton = () => {
   const router = useRouter();

@@ -4,7 +4,7 @@ import { ListingsSkeleton } from '@/components/ListingsSkeleton';
 import { PropertyListings } from '@/components/PropertyListings';
 import { WithAuth } from '@/components/WithAuth';
 
-type SearchProps = {
+type PageProps = {
   searchParams?: {
     limit?: string;
     page?: string;
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   title: 'Listings',
 };
 
-const Page = async ({ searchParams }: SearchProps) => {
+const Page = async ({ searchParams }: PageProps) => {
   const limit = Number(searchParams?.limit) || 8;
   const page = Number(searchParams?.page) || 0;
 
