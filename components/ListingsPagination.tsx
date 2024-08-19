@@ -87,6 +87,7 @@ export const ListingsPagination = ({
             pages.length > 5 &&
             pages.slice(0, 5).map((pageItem) => (
               <button
+                disabled={page === pageItem}
                 aria-current={page === pageItem ? 'true' : 'false'}
                 aria-label={`Current page page ${pageItem}`}
                 className={twJoin(
@@ -105,6 +106,7 @@ export const ListingsPagination = ({
             pages.length <= 5 &&
             pages.map((pageItem) => (
               <button
+                disabled={page === pageItem}
                 aria-current={page === pageItem ? 'true' : 'false'}
                 aria-label={`Current page page ${pageItem}`}
                 className={twJoin(
@@ -127,6 +129,7 @@ export const ListingsPagination = ({
 
           {pages.length > 0 && pages.length > 5 && (
             <button
+              disabled={page === lastItem}
               aria-current={page === lastItem ? 'true' : 'false'}
               aria-label={`Current page page ${lastItem}`}
               className={twJoin(
@@ -141,7 +144,7 @@ export const ListingsPagination = ({
           )}
           <button
             aria-label="Go to next page"
-            disabled={limit === listings?.results?.length - 1}
+            disabled={page === pagesCount}
             className="group flex items-center gap-1 py-1 pl-3 transition-all duration-200 ease-out"
             onClick={() => goToPage(page + 1)}
           >
